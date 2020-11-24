@@ -1,15 +1,15 @@
 # Throttling Server
-  Its Based on Token Bucket Algorithm, should be run as a service (daemon)
+  Its Based on Token Bucket Algorithm, should be run as a service (daemon.
   Uses quota.cnf file to initialize with max number of tokens allowed per second
   Every second User's Bucket are filled with allowed max tokens per second.
   When a request recieved for GetToken from client, Bucket is checked if there 
   are any available tokens, if no tokens then return "Deny" else decrement number of
-  tokens by 1 and respond as "Allow".
+  tokens by 1 and respond as "Allow".  
 
-  Runs on Port 8077 
-  Request Format:  "GetToken UserName"
-  Respone Format:  "Allow" 
-                   "Deny"
+    Runs on Port 8077   
+    Request Format:  "GetToken UserName"  
+    Respone Format:  "Allow"   
+                   "Deny"  
 
 
 # Pre-requisites
@@ -46,16 +46,18 @@
 # Run and Test
 
    1. Prepare quota.cnf file
-
-      <User>:<max_tokens_per_second>  
-      sample below
-      $cat quota.cnf
-      John:5
-      Amit:15
-      Peter:5
-      Bob:10
-      Eve:5
-      Tom:20
+   
+        User:max_tokens_per_second   
+      
+      sample below  
+      $cat quota.cnf  
+      John:5  
+      Amit:15  
+      Peter:5  
+      Bob:10  
+      Eve:5  
+      Tom:20  
+      
 
    2. Run throttles server
 
@@ -75,14 +77,17 @@
       Sample output
       [root@dev throttle_server]# ./generate_throttle_request Bob 50
       Generating Request for User:Bob Request Count:50
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Allow
-      [Bob] Deny
+      
+          [Bob] Allow   
+          [Bob] Allow
+          [Bob] Allow
+          [Bob] Allow
+          [Bob] Allow
+          [Bob] Allow
+          [Bob] Allow
+          [Bob] Allow
+          [Bob] Allow
+          [Bob] Allow
+          [Bob] Deny
+          [Bob] Deny
+  
