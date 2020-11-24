@@ -64,7 +64,7 @@
       $cd throttleserver 
       $./throttleserver 
       Usage: throtlleserver <quota.cnf>
-      $./throttleserver
+      $./throttleserver quota.cnf
 
    3. Run client tool
       
