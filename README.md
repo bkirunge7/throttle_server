@@ -9,13 +9,13 @@
     Runs on Port 8077   
     Request Format:  "GetToken UserName"  
     Respone Format:  "Allow"   
-                   "Deny"  
+                     "Deny"  
 
 
 # Pre-requisites
 
-  1. cmake --version
-   cmake version 3.19.0
+  1. cmake --version  
+   cmake version 3.19.0  
 
   2. gcc --version
    gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-28)
@@ -35,14 +35,14 @@
 
   1. Generate cmake build files  
 
-     $cd throttleserver  
-     $cmake server
+     $cd throttleserver   
+     $cmake server  
 
   2. Build  throttleserver and generate_throttle_request client tool
 
-     $cd throttleserver
+     $cd throttleserver  
      $cmake --build . 
-
+ 
 # Run and Test
 
    1. Prepare quota.cnf file
@@ -61,22 +61,22 @@
 
    2. Run throttles server
 
-      $cd throttleserver 
-      $./throttleserver 
-      Usage: throtlleserver <quota.cnf>
-      $./throttleserver quota.cnf
+      $cd throttleserver   
+      $./throttleserver  
+      Usage: throtlleserver <quota.cnf>  
+      $./throttleserver quota.cnf  
 
    3. Run client tool
       
-      ./generate_throttle_request 
-      Usage: generate_request <user> <request_count_per_sec>
+      ./generate_throttle_request  
+      Usage: generate_request <user> <request_count_per_sec>  
       
-      Send 50 requests per second for user Tom
-      ./generate_throttle_request Tom 50
+      Send 50 requests per second for user Tom  
+      ./generate_throttle_request Tom 50    
       
-      Sample output
-      [root@dev throttle_server]# ./generate_throttle_request Bob 50
-      Generating Request for User:Bob Request Count:50
+      Sample output  
+      [root@dev throttle_server]# ./generate_throttle_request Bob 50  
+      Generating Request for User:Bob Request Count:50  
       
           [Bob] Allow   
           [Bob] Allow
