@@ -1,10 +1,11 @@
 # Throttling Server
-  Its Based on Token Bucket Algorithm, should be run as a service (daemon.
-  Uses quota.cnf file to initialize with max number of tokens allowed per second
-  Every second User's Bucket are filled with allowed max tokens per second.
-  When a request recieved for GetToken from client, Bucket is checked if there 
-  are any available tokens, if no tokens then return "Deny" else decrement number of
-  tokens by 1 and respond as "Allow".  
+  It is based on the Token Bucket Algorithm and should run as a service (daemon). The service initializes using the quota.cnf file, which specifies the maximum number of tokens allowed per second.
+
+Every second, each user's bucket is refilled with the maximum allowed tokens. When a client requests a token (GetToken), the service checks the bucket:
+
+If tokens are available, it decrements the count by one and responds with "Allow".
+
+If no tokens remain, it responds with "Deny".  
 
     Runs on Port 8077   
     Request Format:  "GetToken UserName"  
